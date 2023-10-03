@@ -3,16 +3,17 @@
 import "../styles/page.css";
 import React, { useEffect, useState } from "react";
 import Feed from "@components/Feed";
+import { useSession } from "next-auth/react";
 
 const Home: React.FC = () => {
   const [componentsData, setComponentsData] = useState([]);
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     const fetchComponents = async () => {
       try {
         const response = await fetch("/api/UiComponent/getAllComponents");
         const data = await response.json();
-        console.log(data);
 
         if (!response.ok) {
           throw new Error(data.error);

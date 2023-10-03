@@ -19,7 +19,7 @@ const Nav: FC = () => {
 
   const [providers, setProviders] = useState<Provider[] | null>(null);
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(true);
-  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     (async () => {
       const res: any = await getProviders();
@@ -27,16 +27,6 @@ const Nav: FC = () => {
       setProviders(res);
     })();
   }, []);
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      console.log(session);
-    }
-    if (status !== "authenticated") {
-      setLoading(false);
-      console.log(session);
-    }
-  }, [session]);
 
   return (
     <nav className="nav_container">
@@ -53,13 +43,13 @@ const Nav: FC = () => {
 
       {/* Desktop Navigation */}
       <div className="desktop_nav">
-        {loading ? (
-          // Render some loading state
-          <p>Loading...</p>
-        ) : session?.user ? (
+        {session?.user ? (
           <div className="nav_btn_container">
             <Link href="/createUiComp" className="black_btn">
               Share Component
+            </Link>
+            <Link href="/MyComps" className="outline_btn">
+              My Components
             </Link>
             <button
               type="button"
@@ -73,8 +63,8 @@ const Nav: FC = () => {
               <Image
                 src={session?.user.image || "/assets/images/logo-text.svg"}
                 alt="profile-logo"
-                width={37}
-                height={37}
+                width={60}
+                height={60}
                 className="nav-desktop-profile"
               />
             </Link>

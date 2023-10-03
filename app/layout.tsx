@@ -18,7 +18,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
       </div>
 
       <main className="app">
-        <Nav />
+        {/* <Nav /> */}
         {children}
       </main>
     </div>

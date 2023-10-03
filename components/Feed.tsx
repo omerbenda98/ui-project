@@ -11,8 +11,6 @@ type FeedProps = {
 };
 
 const Feed: React.FC<FeedProps> = ({ components }) => {
-  console.log(components);
-
   return (
     <div className="feed">
       {components.map((componentData, index) => (

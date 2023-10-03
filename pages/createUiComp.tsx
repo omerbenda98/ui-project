@@ -1,11 +1,13 @@
 "use client";
 
-import React, { useState, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import "../styles/pages_css/createUiComp.css";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const CreateUiComp: FC = () => {
   const { data: session, status } = useSession();
+  const router = useRouter();
   const [htmlCode, setHtmlCode] = useState<string>("");
   const [cssCode, setCssCode] = useState<string>("");
   const [componentType, setComponentType] = useState<string>("button"); // Set default type to "button"
@@ -32,13 +34,22 @@ const CreateUiComp: FC = () => {
         if (!response.ok) {
           throw new Error(data.error);
         }
-
+        router.push("/");
         console.log("Component saved:", data);
       } catch (error: any) {
         console.error("Error saving component:", error.message);
       }
     }
   };
+
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied / Unauthorized</p>;
+  }
+
   return (
     <div>
       {/* Dropdown for selecting component type */}

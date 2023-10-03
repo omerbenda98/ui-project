@@ -2,11 +2,16 @@
   width: 100vw;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 0.5rem;
+
+  border-bottom: black solid 1px;
 }
 .nav_logo_link {
   width: 10rem;
   text-decoration: none;
   display: flex;
+  padding-left: 2rem;
+  padding-top: 0.7rem;
 }
 
 .mobile_nav {
@@ -48,7 +53,10 @@
 }
 .nav-desktop-profile {
   padding: 7px;
+  margin-right: 2rem;
+  border-radius: 50px;
 }
+
 .dropdown_link {
   font-size: 0.875rem;
   font-family: "Inter", sans-serif;

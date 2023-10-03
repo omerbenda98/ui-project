@@ -19,7 +19,7 @@
 }
 
 .main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #d5d5d5 100%);
   position: absolute;
   content: "";
   z-index: 2;
@@ -99,6 +99,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 .black_btn:hover {
   background-color: white;
@@ -118,6 +119,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 .outline_btn:hover {
   background-color: black;
