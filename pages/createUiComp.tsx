@@ -20,7 +20,7 @@ const CreateUiComp: FC = () => {
         html: htmlCode,
         css: cssCode,
         type: componentType,
-        creator: creatorName,
+        creatorId: session?.user?.id,
       };
 
       try {

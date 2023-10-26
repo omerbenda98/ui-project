@@ -1,4 +1,5 @@
 import { Schema, model, models } from "mongoose";
+import mongoose from "mongoose";
 
 const UiCompSchema = new Schema({
   html: {
@@ -14,9 +15,10 @@ const UiCompSchema = new Schema({
     enum: ["button", "form", "loader", "inputs", "card"],
     required: [true, "Component type is required!"],
   },
-  creator: {
-    type: String,
-    required: [true, "Creator name is required!"],
+  creatorId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", // Referencing the User model
+    required: true,
   },
 });
 

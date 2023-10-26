@@ -9,10 +9,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   await connectToDB(); // Assuming you have a utility function to connect to MongoDB
 
   if (req.method === "POST") {
-    const { html, css, type, creator } = req.body;
+    const { html, css, type, creatorId } = req.body;
 
     try {
-      const newComp = await UiComp.create({ html, css, type, creator });
+      const newComp = await UiComp.create({ html, css, type, creatorId });
       res.status(201).json(newComp);
     } catch (error: any) {
       res.status(500).json({ error: error.message });
