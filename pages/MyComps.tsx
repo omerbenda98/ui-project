@@ -8,7 +8,9 @@ const MyComps = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/UiComponent/getMyComponents");
+        const response = await fetch("/api/UiComponent/getMyComponents", {
+          credentials: "include",
+        });
         const data = await response.json();
         setMyComponentsData(data);
       } catch (error: any) {
