@@ -8,9 +8,7 @@ const MyComps = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://ui-project-n75h89v3f-omers-projects-6e0846f3.vercel.app/api/UiComponent/getMyComponents"
-        );
+        const response = await fetch("/api/UiComponent/getMyComponents");
         const data = await response.json();
         setMyComponentsData(data);
       } catch (error: any) {
