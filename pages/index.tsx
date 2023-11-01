@@ -34,9 +34,8 @@ const Home: React.FC = () => {
         <span className="gradient-text"> Ui - Components</span>
       </h1>
       <p className="description">
-        UI-topia 33333 is an open-source UI Components app for the modern world
-        to discover, create, and share creative Components using only html and
-        css
+        UI-topia is an open-source UI Components app for the modern world to
+        discover, create, and share creative Components using only html and css
       </p>
       <Feed components={componentsData} />
     </section>
